@@ -1,0 +1,292 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <body>
+  <style>
+      .mobi{
+          display: none;
+      }
+      @media only screen and (max-device-width: 480px){
+          .mobi{
+              display: block;
+              width: fit-content;
+          }
+
+      }
+  </style>
+
+        <!-- Start -->
+        <section class="bg-item-detail d-table w-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="sticky-bar">
+                            <img src="{{data.image.url}}" class="img-fluid rounded-md shadow" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="ms-lg-5">
+                            <div class="title-heading">
+                                <h4 class="h3 fw-bold mb-0">{{data.name}}</h4>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mt-4 pt-2">
+                                    <h6>Current price</h6>
+                                    <h4 class="mb-0">{{data.price}}</h4>
+
+                                </div>
+
+
+
+                                <div class="col-12 mt-4 pt-2">
+                                    <a href="#" class="btn btn-l btn-pills btn-primary me-2 mb-2" data-bs-toggle="modal" data-bs-target="#NftBid1"><i class="mdi mdi-gavel fs-5 me-2"></i> Place a Bid</a>
+                                    <a href="#" class="btn btn-l btn-pills btn-primary me-2 mb-2" data-bs-toggle="modal" data-bs-target="#NftBid"><i class="mdi mdi-gavel fs-5 me-2"></i>Buy Now</a>
+                                    <a href="https://metamask.app.link/dapp/https://gemmaart.com/" class="btn btn-l btn-pills btn-primary me-2 mobi mb-2">Open Metamask</a>
+                                    <a href="{% url 'indexurl:man'  %}" class="btn btn-l btn-pills btn-primary" >Buy Manually</a>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4 pt-2">
+                                <div class="col-12">
+                                    <ul class="nav nav-tabs border-bottom" id="myTab" role="tablist">
+
+
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="bids-tab" data-bs-toggle="tab" data-bs-target="#bids" type="button" role="tab" aria-controls="bids" aria-selected="false">Bids</button>
+                                        </li>
+
+                                    </ul>
+
+                                    <div class="tab-content mt-4 pt-2" id="myTabContent">
+
+
+                                        <div class="tab-pane fade show active" id="bids" role="tabpanel" aria-labelledby="bids-tab">
+                                            {% for i in bid %}
+                                            <div class="creators creator-primary d-flex align-items-center mt-5">
+                                                <div class="position-relative">
+                                                    <img src="{{i.nft.image.url}}" class="avatar avatar-md-sm shadow-md rounded-pill" alt="">
+                                                </div>
+
+                                                <div class="ms-3">
+                                                    <h6 class="mb-0">{{i.price}} ETH <span class="text-muted">by</span> <a href="" class="text-dark name">{{i.name}}</a></h6>
+                                                    <small class="text-muted">{{i.created_at}}</small>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+
+            <div class="container mt-100 mt-60">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="section-title text-center mb-4 pb-2">
+                            <h4 class="title mb-4">Related Auction Items</h4>
+                            <p class="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all GemmaArt with their fans and unique token collectors!</p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1">
+                    {% for i in nft %}
+                    <div class="col mt-4 pt-2">
+                        <div class="card nft-items nft-primary rounded-md shadow overflow-hidden mb-1 p-3">
+                            <div class="d-flex justify-content-between">
+                                <div class="img-group">
+                                    <a href="" class="user-avatar">
+                                        <img src="/static/images/client/08.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                    <a href="" class="user-avatar ms-n3">
+                                        <img src="/static/images/client/05.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                    <a href="" class="user-avatar ms-n3">
+                                        <img src="/static/images/client/06.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                </div>
+
+                                <span class="like-icon shadow-sm"><a href="javascript:void(0)" class="text-muted icon"><i class="mdi mdi-18px mdi-heart mb-0"></i></a></span>
+                            </div>
+
+                            <div class="nft-image rounded-md mt-3 position-relative overflow-hidden">
+                                <a href="{% url  'indexurl:nft' i.slug  %}"><img src="{{i.image.url}}" class="img-fluid" alt=""></a>
+                                <div class="position-absolute top-0 start-0 m-2">
+                                    <a href="javascript:void(0)" class="badge badge-link bg-primary">GIFs</a>
+                                </div>
+
+                                <div class="position-absolute top-0 end-0 m-2">
+                                    <a href="" class="btn btn-pills btn-icon"><i class="uil uil-shopping-cart-alt"></i></a>
+                                </div>
+
+
+                            </div>
+
+                            <div class="card-body content position-relative p-0 mt-3">
+                                <a href="" class="title text-dark h6">{{i.name}}</a>
+
+                                <div class="d-flex justify-content-between mt-2">
+                                    <small class="rate fw-bold">{{i.price}}</small>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                    {% endfor %}
+
+
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End -->
+
+
+
+
+        <!-- Place Bid Modal -->
+        <div class="modal fade" id="NftBid1" aria-hidden="true" aria-labelledby="bidtitle" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-sm">
+                <div class="modal-content border-0 shadow-md rounded-md">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bidtitle">Place a Bid</h5>
+                        <button type="button" class="btn btn-close" data-bs-dismiss="modal" id="close-modal"><i class="uil uil-times fs-4"></i></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Name or Nikename <span class="text-danger">*</span></label>
+                                        <input name="name" id="name" type="text" class="form-control" placeholder="Panda..." required>
+
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Your Bid Price <span class="text-danger">*</span></label>
+                                        <input name="price" id="name" type="text" class="form-control" placeholder="00.00 ETH" required>
+                                        <small class="text-muted"><span class="text-dark">Note:</span> Bid price at least 1 ETH</small>
+                                    </div>
+                                </div><!--end col-->
+                                <div class="col-12">
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Enter Your QTY <span class="text-danger">*</span></label>
+                                        <input name="qt"  type="text" class="form-control" placeholder="0" required>
+                                        <small class="text-muted"><span class="text-dark">Note:</span> Max. Qty 5</small>
+                                    </div>
+                                </div><!--end col-->
+                            </div>
+                            <div class="pt-3 border-top">
+                                <div class="d-flex justify-content-between">
+                                    <p class="fw-bold small"> You must bid at least:</p>
+                                    <p class="text-primary"> 1.22 ETH </p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="fw-bold small"> Service free:</p>
+                                    <p class="text-primary"> 0.05 ETH </p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="fw-bold small"> Total bid amount:</p>
+                                    <p class="text-primary mb-0"> 1.27 ETH </p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-pills btn-primary" type="submit" data-bs-target="#placebid" data-bs-toggle="modal"><i class="mdi mdi-gavel fs-5 me-2"></i> Place a Bid</button>
+                            </div>
+                        </form>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Buy Now NFt Modal -->
+
+        <!-- Style switcher -->
+        <div class="modal fade" id="NftBid" aria-hidden="true" aria-labelledby="bidtitle" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Pre-Sale Minting</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center space-y-4 md:space-y-8">
+                            <div class="h-2"></div>
+
+                            <p class="tracking-wider">381/500 minted</p>
+                            <div  id="spinner" class="spinner" style="color: white; animation: none;" >
+                               <p class="" style="margin-bottom: 10px;">
+                                  Total: <span id="totalETH" class="text-dark">{{data.price}}</span> ETH
+                               </p>
+
+                               <button type="button" class="btn-minus"
+                               style="background: rgb(15, 15, 15);
+                               position: relative;
+                               color: #445c7f;font-weight: 700;
+                               text-align: center;
+                               letter-spacing: 2px;
+                               background-position: 0 -15;
+                               padding:7px 20px;
+                               width: fit-content;
+                               border: 0px solid rgb(255, 253, 253);
+                               border-radius: 88px;font-size: 20px;margin-left:10px;
+                               ">-</button>
+                               <input type="text" value="1" data-ruler="quantity" id="totalNFT"
+                                              style="border: 0px solid black;
+                                              text-align: center;
+                                              background: white;color: #445c7f; padding-top:5px; padding-bottom: 5px;
+                                              border-radius: 50px;
+                                              width: 200px;line-height: 1.5;font-size: 20px;"/>
+                               <button type="button" class="btn-plus"
+                                        style="background: rgb(15, 15, 15);
+                                        position: relative;
+                                        color: #445c7f;font-weight: 700;
+                                        text-align: center;
+                                        letter-spacing: 2px;
+                                        background-position: 0 -15;
+                                        padding:7px 20px;
+                                        width: fit-content;
+                                        border: 0px solid rgb(255, 253, 253);
+                                        border-radius: 88px;font-size: 20px;margin-left:10px;
+                                        ">+</button>
+                            </div>
+                            <input type="hidden" value="{{data.price}}" id="pricePerNFT">
+                            <p class="tracking-wider" id="status">Please Connect to your Wallet before Minting.</p>
+                            <div class="flex items-center justify-center text-base md:text-xl space-x-2">
+                               <a class="btn btn-primary w-100 mt-3" id="connectBtn" style="cursor: pointer;">
+                                  Connect
+                               </a>
+                               <a class="btn btn-primary w-100 mt-3" id="checkoutBtn" style="cursor: pointer;">
+                                  Buy
+                               </a>
+                            </div>
+                            <div class="h-6"></div>
+                         </div>
+                        <div class="placebid-form-box">
+
+                            <div class="bit-continue-button">
+
+                                <button type="button" class="btn btn-primary-alta mt--10" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="/static/js/mint.js"></script>
+
+
+    </body>
+ {% endblock content %}

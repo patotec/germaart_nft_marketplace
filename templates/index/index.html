@@ -1,0 +1,321 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <body>
+        <!-- Loader -->
+        <!-- <div id="preloader">
+            <div id="status">
+                <div class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Loader -->
+
+        <!-- Navbar STart -->
+      
+        <!-- Navbar End -->
+
+        <!-- Start Home -->
+        <section class="bg-half-170 d-table w-100" style="background-image: url('/static/images/bg/bg01.png'); background-position: center center;">
+            <div class="bg-overlay bg-gradient-primary opacity-8"></div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="title-heading">
+                            <h6 class="text-light title-dark fw-normal">Explore, Create & Collect NFTs</h6>
+                            <h4 class="heading text-white title-dark fw-bold mb-3">Join The New Era of <br> <span class="typewrite" data-period="2000" data-type='[ "Musics", "Digital Arts", "Illustrations", "Videos", "GIFs"]'></span></h4>
+                            <p class="text-white-50 para-desc mb-0 mb-0">We are a huge marketplace dedicated to connecting great artists of all GemmaArt with their fans and unique token collectors!</p>
+                        
+                            <div class="mt-4 pt-2">
+                                <a href="" class="btn btn-pills btn-outline-light-white">Discover Now</a>
+                            </div>
+                        </div>
+                    </div><!--end slide-->
+
+                    <div class="col-lg-5 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                        <div class="card bg-white nft-items nft-primary img-skewed rounded-md shadow overflow-hidden mb-1 p-3">
+                            <div class="d-flex justify-content-between">
+                                <div class="img-group">
+                                    <a href="" class="user-avatar">
+                                        <img src="/static/images/client/08.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                    <a href="" class="user-avatar ms-n3">
+                                        <img src="/static/images/client/05.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                    <a href="" class="user-avatar ms-n3">
+                                        <img src="/static/images/client/06.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                </div>
+                                
+                                <span class="like-icon shadow-sm"><a href="javascript:void(0)" class="text-muted icon"><i class="mdi mdi-18px mdi-heart mb-0"></i></a></span>
+                            </div>
+
+                            <div class="nft-image rounded-md mt-3 position-relative overflow-hidden shadow">
+                                <a href=""><img src="https://public.nftstatic.com/static/nft/zipped/c5455848c63c484bb514dba6a5a8a7aa_zipped.gif" class="img-fluid" alt=""></a>
+                                <div class="position-absolute top-0 start-0 m-2">
+                                    <a href="javascript:void(0)" class="badge badge-link bg-primary">GIFs</a>
+                                </div>
+
+                                <div class="position-absolute top-0 end-0 m-2">
+                                    <a href="" class="btn btn-pills btn-icon"><i class="uil uil-shopping-cart-alt"></i></a>
+                                </div>
+
+                                <div class="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3 h5">
+                                    <i class="uil uil-clock"></i> <small id="auction-item-9" class="fw-bold"></small>
+                                </div>
+                            </div>
+
+                            <div class="card-body content position-relative p-0 mt-3">
+                                <a href="" class="title text-dark h5">Deep Sea Phantasy</a>
+
+                                <div class="d-flex justify-content-between mt-2">
+                                    <small class="rate fw-bold">20.5 ETH</small>
+                                    <small class="text-dark fw-bold">1 out of 10</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end slide-->
+                </div><!--end row-->
+            </div><!--end container-->
+        </section><!--end section-->
+        <!-- End Home -->
+
+        <!-- Start -->
+        <section class="section">
+            <div class="container">
+                <div class="row align-items-end mb-4 pb-2">
+                    <div class="col-md-8">
+                        <div class="section-title">
+                            <h4 class="title mb-2">Best Creators & Sellers</h4>
+                            <p class="text-muted mb-0">Best sellers of the week's NFTs</p>
+                        </div>
+                    </div><!--end slide-->
+
+                    <div class="col-md-4">
+                        <div class="text-end d-md-block d-none">
+                            <a href="" class="btn btn-link primary text-dark">See More <i class="uil uil-arrow-right"></i></a>
+                        </div>
+                    </div><!--end slide-->
+                </div><!--end row-->
+
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <div class="tiny-five-item-nav-arrow">
+                            {% for i in cre %}
+                            <div class="tiny-slide">
+                                <div class="card creators creators-two creator-primary rounded-md shadow overflow-hidden mx-2 my-3">
+                                    <div class="py-5" style="background: url('/static/images/work/1.jpg');"></div>
+                                    <div class="position-relative mt-n5">
+                                        <img src="{{i.image.url}}" class="avatar avatar-md-md rounded-pill shadow-sm bg-light img-thumbnail mx-auto d-block" alt="">
+                                        
+                                        <div class="content text-center pt-2 p-4">
+                                            <a href="" class="text-dark h6 name d-block mb-0">{{i.name}}</a>
+                                            
+
+                                            <div class="mt-3">
+                                                <a href="javascript:void(0)" class="btn btn-pills btn-soft-primary">Follow</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}<!--end slide-->
+                            
+                       
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="row">
+                    <div class="col">
+                        <div class="text-center d-md-none d-block">
+                            <a href="" class="btn btn-link primary text-dark">See More <i class="uil uil-arrow-right"></i></a>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+            </div><!--end container-->
+
+            <div class="container mt-100 mt-60">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="section-title text-center mb-4 pb-2">
+                            <h4 class="title mb-4">Explore Hot Products</h4>
+                            <p class="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all GemmaArt with their fans and unique token collectors!</p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="row justify-content-center mt-4 mb-5">
+                   
+                </div><!--end row-->
+
+                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4" id="grid">
+                    {% for i in nft %}
+                    <div class="col picture-item">
+                        <div class="card nft-items nft-primary rounded-md shadow overflow-hidden mb-1 p-3">
+                            <div class="d-flex justify-content-between">
+                                <div class="img-group">
+                                    <a href="" class="user-avatar">
+                                        <img src="/static/images/client/08.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                    <a href="" class="user-avatar ms-n3">
+                                        <img src="/static/images/client/05.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                    <a href="" class="user-avatar ms-n3">
+                                        <img src="/static/images/client/06.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                </div>
+                                
+                                <span class="like-icon shadow-sm"><a href="javascript:void(0)" class="text-muted icon"><i class="mdi mdi-18px mdi-heart mb-0"></i></a></span>
+                            </div>
+
+                            <div class="nft-image rounded-md mt-3 position-relative overflow-hidden">
+                                <a href="{% url  'indexurl:cat' i.slug  %}"><img src="{{i.image.url}}" class="img-fluid" alt=""></a>
+                                <div class="position-absolute top-0 start-0 m-2">
+                                    <a href="javascript:void(0)" class="badge badge-link bg-primary">GIFs</a>
+                                </div>
+
+                                <div class="position-absolute top-0 end-0 m-2">
+                                    <a href="" class="btn btn-pills btn-icon"><i class="uil uil-shopping-cart-alt"></i></a>
+                                </div>
+
+                                <div class="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
+                                    <i class="uil uil-clock"></i> <small id="auction-item-1" class="fw-bold"></small>
+                                </div>
+                            </div>
+
+                            <div class="card-body content position-relative p-0 mt-3">
+                                <a href="" class="title text-dark h6">{{i.name}}</a>
+
+                                <div class="d-flex justify-content-between mt-2">
+                                    <small class="rate fw-bold">{{i.price}}</small>
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                    {% endfor %}
+                
+                </div><!--end row-->
+            </div><!--end container-->
+
+            <div class="container-fluid mt-100 mt-60">
+                <div class="row px-0">
+                    <div class="bg-half-100 bg-gradient-primary">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <div class="section-title text-center mb-4 pb-2">
+                                        <h4 class="title text-white title-dark mb-4">Join the fastest growing GemmaArt NFTs <br> with more than 2000+ NFTs</h4>
+                                        <p class="text-white-50 para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all GemmaArt with their fans and unique token collectors!</p>
+                                    </div>
+                                </div><!--end col-->
+                            </div><!--end row-->
+
+                            <div class="row">
+                                <div class="col-md-6 mt-4 pt-2">
+                                    <div class="card p-4 rounded-md shadow bg-white">
+                                        <h4 class="mb-4">Join our community</h4>
+                                        <p class="text-muted mb-0">We are a huge marketplace dedicated to connecting great artists of all GemmaArt.</p>
+
+                                        <div class="mt-3">
+                                            <a href="" class="btn btn-link primary text-dark">Read More <i class="uil uil-arrow-right"></i></a>
+                                        </div>
+                                        <div class="py-4"></div>
+                                        <div class="position-absolute bottom-0 end-0">
+                                            <img src="/static/images/svg/community.png" class="avatar avatar-medium opacity-05" alt="">
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                                
+                                <div class="col-md-6 mt-4 pt-2">
+                                    <div class="card p-4 rounded-md shadow bg-white">
+                                        <h4 class="mb-4">Learn more about GemmaArt</h4>
+                                        <p class="text-muted mb-0">We are a huge marketplace dedicated to connecting great artists of all GemmaArt.</p>
+
+                                        <div class="mt-3">
+                                            <a href="" class="btn btn-link primary text-dark">Read More <i class="uil uil-arrow-right"></i></a>
+                                        </div>
+                                        <div class="py-4"></div>
+                                        <div class="position-absolute bottom-0 end-0">
+                                            <img src="/static/images/svg/united.png" class="avatar avatar-medium opacity-05" alt="">
+                                        </div>
+                                    </div>
+                                </div><!--end col-->
+                            </div><!--end row-->
+                        </div><!--end container-->
+                    </div>
+                </div><!--end row-->
+            </div><!--end container-->
+
+            <div class="container mt-100 mt-60">
+                <div class="row justify-content-center">
+                    <div class="col">
+                        <div class="section-title text-center mb-5 pb-3">
+                            <h4 class="title mb-4">Live Auctions</h4>
+                            <p class="text-muted para-desc mb-0 mx-auto">We are a huge marketplace dedicated to connecting great artists of all GemmaArt with their fans and unique token collectors!</p>
+                        </div>
+                    </div><!--end col-->
+                </div><!--end row-->
+
+                <div class="row row-cols-xl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-4">
+                    {% for i in nft %}
+                    <div class="col ">
+                        <div class="card nft-items nft-primary rounded-md shadow overflow-hidden mb-1 p-3">
+                            <div class="d-flex justify-content-between">
+                                <div class="img-group">
+                                    <a href="" class="user-avatar">
+                                        <img src="/static/images/client/08.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                    <a href="" class="user-avatar ms-n3">
+                                        <img src="/static/images/client/05.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                    <a href="" class="user-avatar ms-n3">
+                                        <img src="/static/images/client/06.jpg" alt="user" class="avatar avatar-sm-sm img-thumbnail border-0 shadow-sm rounded-circle">
+                                    </a>
+                                </div>
+                                
+                                <span class="like-icon shadow-sm"><a href="javascript:void(0)" class="text-muted icon"><i class="mdi mdi-18px mdi-heart mb-0"></i></a></span>
+                            </div>
+
+                            <div class="nft-image rounded-md mt-3 position-relative overflow-hidden">
+                                <a href="{% url  'indexurl:nft' i.slug  %}"><img src="{{i.image.url}}" class="img-fluid" alt=""></a>
+                                <div class="position-absolute top-0 start-0 m-2">
+                                    <a href="javascript:void(0)" class="badge badge-link bg-primary">GIFs</a>
+                                </div>
+
+                                <div class="position-absolute top-0 end-0 m-2">
+                                    <a href="" class="btn btn-pills btn-icon"><i class="uil uil-shopping-cart-alt"></i></a>
+                                </div>
+
+                                <div class="position-absolute bottom-0 start-0 m-2 bg-gradient-primary text-white title-dark rounded-pill px-3">
+                                    <i class="uil uil-clock"></i> <small id="auction-item-1" class="fw-bold"></small>
+                                </div>
+                            </div>
+
+                            <div class="card-body content position-relative p-0 mt-3">
+                                <a href="" class="title text-dark h6">{{i.name}}</a>
+
+                                <div class="d-flex justify-content-between mt-2">
+                                    <small class="rate fw-bold">{{i.price}}</small>
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                    {% endfor %}
+                 
+                </div><!--end row-->
+            </div><!--end container-->
+
+         
+        </section><!--end section-->
+        <!-- End -->
+
+    
+        
+    </body>
+    {% endblock content %}
